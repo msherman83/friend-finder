@@ -2,10 +2,9 @@
 // Array to hold friends data submitted from form.
 var friendsArray = [
     {
-        customerName: "Ahmed",
-        customerEmail: "ahmed@example.com",
-        customerID: "afhaque89",
-        phoneNumber: "000-000-0000"
+        name: "Mike",
+        Photo: "Something Here",
+        scores: ["1", "3", "5", "7", "3", "10", "3", "3", "6", "10"]
       }
 ];
 
