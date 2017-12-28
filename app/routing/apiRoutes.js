@@ -1,4 +1,4 @@
-var friendsData = require("../data/friends");
+var friendsData = require("../data/friends.js");
 
 
 module.exports = function (app) {
@@ -32,11 +32,19 @@ module.exports = function (app) {
       friendDiff: 1000
     };
 
+    console.log(friendsData)
+
     var inputData = req.body;
-    var inputScores = friendsData.scores;
+    var inputScores = req.body["scores[]"];
     var totalDiff = 0;
+
+    console.log(req.body["scores[]"]);
+
     for (var i = 0; i < friendsData.length; i++) {
 
+      // console.log("Input Data" + inputData);
+      console.log("Input Scores" + inputScores);
+      console.log("total Diff" + totalDiff);
       totalDiff = 0;
 
       //Loop through the scores of each friend
