@@ -12,6 +12,30 @@
 </head>
 
 <body>
+
+    <!-- Modal -->
+    <div id="resultsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">
+                        <strong>Best Match</strong>
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="matchName"></h2>
+                    <img id="matchImg">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="container">
 
         <div class="jumbotron">
@@ -47,6 +71,7 @@
 
                                 <div class="form-group">
                                     <label for="question1">Question 1</label>
+                                    <h4>You like to eat pizza.</h4>
                                     <select class="form-control" id="question1">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -59,6 +84,7 @@
 
                                 <div class="form-group">
                                     <label for="question2">Question 2</label>
+                                    <h4>You like long walks on the beach.</h4>
                                     <select class="form-control" id="question2">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -71,6 +97,7 @@
 
                                 <div class="form-group">
                                     <label for="question3">Question 3</label>
+                                    <h4>You like to dance with the devil in the pale moonlight.</h4>
                                     <select class="form-control" id="question3">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -83,6 +110,7 @@
 
                                 <div class="form-group">
                                     <label for="question4">Question 4</label>
+                                    <h4>You have cat-like balance.</h4>
                                     <select class="form-control" id="question4">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -95,6 +123,7 @@
 
                                 <div class="form-group">
                                     <label for="question5">Question 5</label>
+                                    <h4>Your bo staff skills are second to none.</h4>
                                     <select class="form-control" id="question5">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -107,6 +136,7 @@
 
                                 <div class="form-group">
                                     <label for="question6">Question 6</label>
+                                    <h4>You love Scotch.  Scotch! Scotch! Scotch!</h4>
                                     <select class="form-control" id="question6">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -119,6 +149,7 @@
 
                                 <div class="form-group">
                                     <label for="question7">Question 7</label>
+                                    <h4>You like cats.</h4>
                                     <select class="form-control" id="question7">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -131,6 +162,7 @@
 
                                 <div class="form-group">
                                     <label for="question8">Question 8</label>
+                                    <h4>Your favorite band is Slayer.</h4>
                                     <select class="form-control" id="question8">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -143,6 +175,7 @@
 
                                 <div class="form-group">
                                     <label for="question9">Question 9</label>
+                                    <h4>You prefer the company of animals over humans.</h4>
                                     <select class="form-control" id="question9">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -155,6 +188,7 @@
 
                                 <div class="form-group">
                                     <label for="question10">Question 10</label>
+                                    <h4>You once shot a man in Reno, just to watch him die.</h4>
                                     <select class="form-control" id="question10">
                                         <option value="" selected disabled>Please select an option</option>
                                         <option>1 (Strong Disagree)</option>
@@ -202,39 +236,34 @@
     $(".submit").on("click", function (event) {
         event.preventDefault();
 
-        // Here we grab the form elements
+        var userScores = $("#question1").val().toString() + $("#question2").val().toString() + $("#question3").val().toString() +
+            $("#question4").val().toString() + $("#question5").val().toString() + $("#question6").val().toString() + $("#question7").val()
+                .toString() + $("#question8").val().toString() + $("#question9").val().toString() + $("#question10").val().toString()
+
+
         var friendsData = {
-            name: $("#name").val().trim(),
-            photo: $("#photo").val().trim(),
-            scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
+            name: $("#name").val(),
+            photo: $("#photo").val(),
+            scores: userScores
         };
+
 
         console.log(friendsData);
 
-        // This line is the magic. It"s very similar to the standard ajax function we used.
-        // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-        // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-        // depending on if a tables is available or not.
 
         $.post("/api/friends", friendsData,
             function (data) {
 
                 console.log("its pushed!")
-                // // If a table is available... tell user they are booked.
-                // if (data) {
-                //     alert("Yay! You are officially booked!");
-                // }
 
-                // // If a table is available... tell user they on the waiting list.
-                // else {
-                //     alert("Sorry you are on the wait list");
-                // }
+                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+                $("#matchName").text(data.name);
+                $('#matchImg').attr("src", data.photo);
+                // console.log("Data.photo - " + data.name)
+                // console.log("Data.photo - " + data.photo)
+                // Show the modal with the best match
+                $("#resultsModal").modal('toggle');
 
-                // // Clear the form when submitting
-                // $("#reserve-name").val("");
-                // $("#reserve-phone").val("");
-                // $("#reserve-email").val("");
-                // $("#reserve-unique-id").val("");
 
             });
 

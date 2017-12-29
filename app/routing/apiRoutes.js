@@ -35,10 +35,10 @@ module.exports = function (app) {
     console.log(friendsData)
 
     var inputData = req.body;
-    var inputScores = req.body["scores[]"];
+    var inputScores = req.body.scores;
     var totalDiff = 0;
 
-    console.log(req.body["scores[]"]);
+    console.log("console logging scores " + req.body.scores);
 
     for (var i = 0; i < friendsData.length; i++) {
 
