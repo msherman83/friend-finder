@@ -1,3 +1,14 @@
+<!-- 
+To do
+- clean up code 
+- fix hard coded arrays
+- style
+- host on huroku
+- readme
+
+-->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,20 +25,22 @@
 <body>
 
     <!-- Modal -->
-    <div id="resultsModal" class="modal fade" role="dialog">
+    <div id="friendMatchModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-            <!-- Modal content-->
+            <!-- Modal Content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title">
-                        <strong>Best Match</strong>
-                    </h2>
+                    <div class="modal-title">
+                        <h1>Your Best Friend is...</h1>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <h2 id="matchName"></h2>
-                    <img id="matchImg">
+                <!-- Modal Body -->
+                <div class="modal-body text-center">
+                    <div id="nameMatch" class="text-center"></div>
+                    <img id="imageMatch" class="text-center">
                 </div>
+                <!-- Modal Footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -74,11 +87,11 @@
                                     <h4>You like to eat pizza.</h4>
                                     <select class="form-control" id="question1">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -87,11 +100,11 @@
                                     <h4>You like long walks on the beach.</h4>
                                     <select class="form-control" id="question2">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -100,11 +113,11 @@
                                     <h4>You like to dance with the devil in the pale moonlight.</h4>
                                     <select class="form-control" id="question3">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -113,11 +126,11 @@
                                     <h4>You have cat-like balance.</h4>
                                     <select class="form-control" id="question4">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -126,24 +139,24 @@
                                     <h4>Your bo staff skills are second to none.</h4>
                                     <select class="form-control" id="question5">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="question6">Question 6</label>
-                                    <h4>You love Scotch.  Scotch! Scotch! Scotch!</h4>
+                                    <h4>You love Scotch. Scotch! Scotch! Scotch!</h4>
                                     <select class="form-control" id="question6">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -152,11 +165,11 @@
                                     <h4>You like cats.</h4>
                                     <select class="form-control" id="question7">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -165,11 +178,11 @@
                                     <h4>Your favorite band is Slayer.</h4>
                                     <select class="form-control" id="question8">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -178,11 +191,11 @@
                                     <h4>You prefer the company of animals over humans.</h4>
                                     <select class="form-control" id="question9">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -191,11 +204,11 @@
                                     <h4>You once shot a man in Reno, just to watch him die.</h4>
                                     <select class="form-control" id="question10">
                                         <option value="" selected disabled>Please select an option</option>
-                                        <option>1 (Strong Disagree)</option>
+                                        <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                        <option>5 (Strongly Agree)</option>
+                                        <option>5</option>
                                     </select>
                                 </div>
 
@@ -225,22 +238,18 @@
 
 </html>
 
-<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<!-- jquery to handle the logic -->
 <script type="text/javascript">
-
-    // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
-    // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-    // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-    // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
 
     $(".submit").on("click", function (event) {
         event.preventDefault();
 
+        // Variable created to store the answers to the questions in the survey.
         var userScores = $("#question1").val().toString() + $("#question2").val().toString() + $("#question3").val().toString() +
             $("#question4").val().toString() + $("#question5").val().toString() + $("#question6").val().toString() + $("#question7").val()
                 .toString() + $("#question8").val().toString() + $("#question9").val().toString() + $("#question10").val().toString()
 
-
+        // Array created to store all of the information of the survey.
         var friendsData = {
             name: $("#name").val(),
             photo: $("#photo").val(),
@@ -250,19 +259,16 @@
 
         console.log(friendsData);
 
-
+        // Where the magic happens.
         $.post("/api/friends", friendsData,
             function (data) {
 
                 console.log("its pushed!")
 
-                // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                $("#matchName").text(data.name);
-                $('#matchImg').attr("src", data.photo);
-                // console.log("Data.photo - " + data.name)
-                // console.log("Data.photo - " + data.photo)
-                // Show the modal with the best match
-                $("#resultsModal").modal('toggle');
+                // Get results from arrays and post the best match.
+                $("#nameMatch").text(data.name);
+                $('#imageMatch').attr("src", data.photo);
+                $("#friendMatchModal").modal('toggle');
 
 
             });
