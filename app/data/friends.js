@@ -8,7 +8,7 @@ var friendsArray = [
     },
     {
         name: "Jim",
-        photo: "http://kikiandtea.com/wp-content/uploads/nerd.jpg",
+        photo: "http://images.amcnetworks.com/ifc.com/wp-content/uploads/2014/02/nerd-dance.jpg",
         scores: "4333433325"
     },
     {

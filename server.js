@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
-
+// Listen on port 8080 or whatever the assigned port is in heroku
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
