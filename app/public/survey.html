@@ -1,13 +1,3 @@
-<!-- 
-To do
-- add logic to clear form after closing modal
-- clean up code
-- add comments 
-- readme
-
--->
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +34,8 @@ To do
                 </div>
                 <!-- Modal Footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- Close modal and reload the page -->
+                    <button id="clear" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -272,6 +263,11 @@ To do
 
             });
 
+    });
+
+    // Reload page to get a fresh form.
+    $("#clear").click(function () {
+        location.reload();
     });
 
 </script>

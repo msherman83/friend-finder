@@ -17,16 +17,17 @@ module.exports = function (app) {
       friendDiff: 1000
     };
 
-
+    // Create a variable of all of the scores of the friends.
     var surveyScores = req.body.scores;
 
+    // Loop through friendData array
     for (var i = 0; i < friendsData.length; i++) {
 
       totalDifference = 0;
 
-      //Loop through the scores of each friend
+      // Loop through each friends score.
       for (var index = 0; index < friendsData[i].scores[index]; index++) {
-        //calculating the difference between each score and sum them into totalDifferenceerence
+        // Create a variable of totalDifference and get the difference between the user input score and the existing scores.
         totalDifference = totalDifference + Math.abs(parseInt(surveyScores[index]) - parseInt(friendsData[i].scores[index]));
 
         // Figure out best friend match
