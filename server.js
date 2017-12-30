@@ -5,7 +5,8 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 8080;
 
-app.use(express.static(path.join(__dirname, "/public")));
+// Makes everything available to express in the app/public folder.
+app.use(express.static(path.join(__dirname, "app/public")));
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));

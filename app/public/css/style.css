@@ -2,8 +2,16 @@ body {
     background-image: url(../img/background.jpg);
     /* background-repeat: no-repeat;
     background-attachment: fixed; */
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Lobster', "cursive";
     font-size: 20px;
     letter-spacing: 1.5px;
     line-height: 1.5
+}
+
+.jumbotron {
+    background: rgba(255, 254, 254, 0.8);
+}
+
+.title {
+    font-size: 100px !important;
 }

@@ -1,0 +1,16 @@
+body {
+    background-image: url(../img/background1.jpg);
+    background-size: cover;
+    font-family: 'Lobster', "cursive";
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    line-height: 1.5
+}
+
+.jumbotron {
+    background: rgba(255, 254, 254, 0.6);
+}
+
+h1 {
+    font-size: 100px !important;
+}
